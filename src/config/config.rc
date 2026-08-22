@@ -1,0 +1,80 @@
+#include <windows.h>
+#include <commctrl.h>
+#include "resource.h"
+
+//: Two layout decisions here are load-bearing rather than cosmetic.
+//:
+//: 1. Every value control is preceded in the template by its own LTEXT label.
+//:    MSAA gives a control with no caption of its own the name of the static
+//:    text immediately before it in the dialog's z-order, so moving a label
+//:    after its control, or dropping anything in between, silently renames
+//:    the control -- and a screen reader then announces the wrong one.
+//:
+//: 2. The 0-9 values are drop-down lists, not trackbars.  A trackbar looks
+//:    like the obvious choice and reads badly: the MSAA proxy for
+//:    msctls_trackbar32 reports its position as a percentage of the range, so
+//:    with a 0-9 range a setting of 5 is announced as "55" and 6 as "66".
+//:    Measured, not assumed -- see the note in README.md.  A drop-down list
+//:    reports the selected item verbatim, so 5 is announced as "5", and
+//:    arrow keys still step through the values in place exactly as they would
+//:    on a slider.
+
+IDD_CONFIG DIALOGEX 0, 0, 286, 190
+STYLE DS_SETFONT | DS_MODALFRAME | DS_CENTER | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "SmoothTalker Configuration"
+FONT 9, "Segoe UI", 400, 0, 1
+BEGIN
+    LTEXT           "SmoothTalker 3.5 (First Byte) - one male voice, US English. Changes take effect immediately.",
+                    IDC_INTRO, 10, 8, 266, 18
+
+    LTEXT           "&Rate (0 is slowest, 9 is fastest):", IDC_RATE_LABEL, 10, 32, 190, 9
+    COMBOBOX        IDC_RATE, 206, 30, 70, 120,
+                    CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP | WS_GROUP
+
+    LTEXT           "&Pitch (0 is lowest, 9 is highest):", IDC_PITCH_LABEL, 10, 54, 190, 9
+    COMBOBOX        IDC_PITCH, 206, 52, 70, 120,
+                    CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP | WS_GROUP
+
+    LTEXT           "&Volume (0 is quietest, 9 is loudest):", IDC_VOLUME_LABEL, 10, 76, 190, 9
+    COMBOBOX        IDC_VOLUME, 206, 74, 70, 120,
+                    CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP | WS_GROUP
+
+    AUTOCHECKBOX    "&Tone: bright (cuts the low end for a thinner voice)",
+                    IDC_TONE, 10, 100, 266, 10, WS_TABSTOP | WS_GROUP
+
+    PUSHBUTTON      "&Speak a test phrase", IDC_TEST, 10, 122, 96, 16, WS_TABSTOP | WS_GROUP
+    PUSHBUTTON      "Restore &defaults", IDC_DEFAULTS, 112, 122, 80, 16, WS_TABSTOP
+    DEFPUSHBUTTON   "&Close", IDOK, 198, 122, 78, 16, WS_TABSTOP
+
+    LTEXT           "", IDC_STATUS, 10, 148, 266, 32
+END
+
+STRINGTABLE
+BEGIN
+    IDD_CONFIG "SmoothTalker Configuration"
+END
+
+1 VERSIONINFO
+FILEVERSION 1, 0, 0, 0
+PRODUCTVERSION 1, 0, 0, 0
+FILEOS VOS_NT_WINDOWS32
+FILETYPE VFT_APP
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904B0"
+        BEGIN
+            VALUE "CompanyName", "SmoothTalker SAPI5"
+            VALUE "FileDescription", "SmoothTalker Configuration"
+            VALUE "FileVersion", "1.0.0.0"
+            VALUE "InternalName", "SmoothTalkerConfig"
+            VALUE "OriginalFilename", "SmoothTalkerConfig.exe"
+            VALUE "ProductName", "SmoothTalker SAPI5"
+            VALUE "ProductVersion", "1.0.0.0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1200
+    END
+END

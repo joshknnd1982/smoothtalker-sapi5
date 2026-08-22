@@ -1,0 +1,22 @@
+#pragma once
+
+#define IDD_CONFIG 100
+#define IDI_APP 101
+
+#define IDC_INTRO 1000
+
+#define IDC_RATE_LABEL 1010
+#define IDC_RATE 1011
+
+#define IDC_PITCH_LABEL 1020
+#define IDC_PITCH 1021
+
+#define IDC_VOLUME_LABEL 1030
+#define IDC_VOLUME 1031
+
+#define IDC_TONE 1040
+
+#define IDC_TEST 1050
+#define IDC_DEFAULTS 1051
+
+#define IDC_STATUS 1060

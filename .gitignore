@@ -1,0 +1,14 @@
+# build trees
+build
+build_x64
+build_x86
+build_probe
+output
+build_all.log
+
+# generated demo audio -- reproduce with `python tools/make_samples.py`
+samples/*.wav
+
+# python bytecode from the reference harnesses
+__pycache__/
+*.pyc

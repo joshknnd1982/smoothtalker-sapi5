@@ -1,0 +1,13 @@
+# Git's own binary detection would almost certainly get these right, but
+# engine.bin is a byte-exact memory image: a single line-ending "fix" applied
+# to it turns the voice silent, with nothing to point at. Say it explicitly.
+*.bin binary
+*.dll binary
+*.exe binary
+*.lib binary
+*.wav binary
+*.pyc binary
+
+# Everything else is text; normalise to LF in the repository and let each
+# checkout use whatever its platform wants.
+* text=auto
