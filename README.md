@@ -123,21 +123,39 @@ stepping with the arrow keys.
 
 ## Credits and licensing
 
-This repository contains three things with three different origins, and they
-are worth keeping straight:
+This repository contains several things with different origins, and they are
+worth keeping straight:
 
 | Component | Origin | Terms |
 |-----------|--------|-------|
-| `bin/_smoothtalker_engine/engine.bin` | SmoothTalker 3.5, First Byte, 1983–1990 | Proprietary. Redistributed here unmodified as abandonware, as it already is in the NVDA add-on this was derived from. Not mine to license. |
+| `src/`, `installer/`, `tools/`, `CMakeLists.txt` | This project | **GPLv2** — see [LICENSE](LICENSE) |
 | `bin/unicorn/*/unicorn.dll` | [Unicorn Engine](https://www.unicorn-engine.org/) 2.1.4 | **GPLv2** |
-| `src/`, `installer/`, `tools/` | This project | See below |
+| `bin/_smoothtalker_engine/engine.bin` | SmoothTalker 3.5, First Byte, 1983–1990 | Proprietary. Redistributed unmodified as abandonware, as it already is in the NVDA add-on this was derived from. Not this project's to license. |
+| `bin/smoothtalker.py`, `bin/_smoothtalker_engine/core.py` | The NVDA add-on this was ported from | Kept verbatim as the reference implementation `tools/compare_engines.py` checks against |
 
-The wrapper's COM plumbing (`src/sapi/com.*`, `registry.*`, `utils.hpp`,
-`ISpDataKeyImpl.*`) is adapted from the BSTSpeech SAPI5 wrapper.
+This project is free software: you can redistribute it and/or modify it under
+the terms of version 2 of the GNU General Public License as published by the
+Free Software Foundation. It is distributed in the hope that it will be
+useful, but **without any warranty** — without even the implied warranty of
+merchantability or fitness for a particular purpose. See the
+[LICENSE](LICENSE) file for the full text.
 
-Note that the shipped installer distributes `unicorn.dll` alongside these
-binaries, and Unicorn is GPLv2 — so the distribution as a whole carries GPLv2
-obligations even though the engine is loaded dynamically rather than linked.
+GPLv2 is the honest choice rather than a preference: the shipped installer
+distributes `unicorn.dll` alongside these binaries, and Unicorn is GPLv2, so
+the distribution as a whole carries GPLv2 obligations regardless — even though
+unicorn is loaded dynamically at run time rather than linked.
+
+Two provenance notes, so nobody has to guess:
+
+- The COM plumbing (`src/sapi/com.*`, `registry.*`, `utils.hpp`,
+  `ISpDataKeyImpl.*`) is **adapted from the BSTSpeech SAPI5 wrapper** and is
+  not original to this project. Those files carry no per-file copyright header
+  for that reason — relicensing someone else's code by fiat is not something a
+  downstream adapter gets to do. If you are reusing them, go and check
+  BSTSpeech's own terms.
+- `engine.bin` is **not** covered by the GPL and is not this project's to
+  relicense. The GPL here covers the wrapper, the emulation harness, the
+  installer and the tools — not First Byte's engine.
 
 SmoothTalker and Dr. Sbaitso are the work of First Byte and Creative Labs.
 Nothing here modifies their engine; it is executed exactly as shipped in 1990.

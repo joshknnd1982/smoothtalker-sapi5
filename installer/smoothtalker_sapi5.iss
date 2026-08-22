@@ -89,10 +89,15 @@ Source: "{#SrcX64}\engine.bin";   DestDir: "{app}\x64"; Flags: ignoreversion; Ch
 Source: "{#SrcX64}\st_render.exe"; DestDir: "{app}\x64"; Flags: ignoreversion; Check: Is64BitInstallMode
 
 Source: "README.txt";             DestDir: "{app}"; Flags: ignoreversion isreadme
+; Installed, but deliberately not shown as a LicenseFile wizard page: the GPL
+; is not a click-through agreement for *using* the software, and presenting it
+; as one that must be accepted before installing misrepresents it.
+Source: "..\LICENSE";             DestDir: "{app}"; DestName: "LICENSE.txt"; Flags: ignoreversion
 
 [Icons]
 Name: "{group}\SmoothTalker Configuration"; Filename: "{app}\{#ConfigExe}"; Comment: "Adjust the rate, pitch, tone and volume of the SmoothTalker voice"
 Name: "{group}\SmoothTalker Read Me"; Filename: "{app}\README.txt"
+Name: "{group}\Licence (GPL v2)"; Filename: "{app}\LICENSE.txt"
 Name: "{group}\{cm:UninstallProgram,{#AppName}}"; Filename: "{uninstallexe}"
 Name: "{autodesktop}\SmoothTalker Configuration"; Filename: "{app}\{#ConfigExe}"; Comment: "Adjust the rate, pitch, tone and volume of the SmoothTalker voice"; Tasks: desktopicon
 

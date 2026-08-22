@@ -119,10 +119,23 @@ exactly as you had it. To remove them too, delete these folders yourself:
     %LOCALAPPDATA%\SmoothTalker
 
 
-Credits
--------
+Credits and licensing
+---------------------
 
 SmoothTalker and Dr. Sbaitso are the work of First Byte and Creative Labs.
-This package contains their engine image; it does not modify it.
+This package contains their engine image (engine.bin) unmodified; it is
+proprietary and is not covered by the licence below.
+
 CPU emulation is by the Unicorn Engine (https://www.unicorn-engine.org/),
-which is GPLv2.
+version 2.1.4, which is GPLv2.
+
+The SAPI5 wrapper, the configuration utility, the installer and the tools are
+free software under version 2 of the GNU General Public License. They come
+with ABSOLUTELY NO WARRANTY. You are free to redistribute them under the terms
+of that licence; the full text is in the LICENSE file in the source
+repository:
+
+    https://github.com/joshknnd1982/smoothtalker-sapi5
+
+Source code for everything in this package that is under the GPL is available
+at that address.
