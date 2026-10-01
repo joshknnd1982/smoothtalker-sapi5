@@ -89,15 +89,20 @@ Source: "{#SrcX64}\engine.bin";   DestDir: "{app}\x64"; Flags: ignoreversion; Ch
 Source: "{#SrcX64}\st_render.exe"; DestDir: "{app}\x64"; Flags: ignoreversion; Check: Is64BitInstallMode
 
 Source: "README.txt";             DestDir: "{app}"; Flags: ignoreversion isreadme
-; Installed, but deliberately not shown as a LicenseFile wizard page: the GPL
-; is not a click-through agreement for *using* the software, and presenting it
-; as one that must be accepted before installing misrepresents it.
+; Installed, but deliberately not shown as a LicenseFile wizard page: the MIT
+; License is not a click-through agreement for *using* the software, and
+; presenting it as one that must be accepted before installing misrepresents it.
 Source: "..\LICENSE";             DestDir: "{app}"; DestName: "LICENSE.txt"; Flags: ignoreversion
+; NOTICE.md lists what the MIT License does not cover, and carries the GPL v2
+; text for the unicorn.dll files installed above, so that text still ships
+; with them.
+Source: "..\NOTICE.md";           DestDir: "{app}"; DestName: "NOTICE.txt"; Flags: ignoreversion
 
 [Icons]
 Name: "{group}\SmoothTalker Configuration"; Filename: "{app}\{#ConfigExe}"; Comment: "Adjust the rate, pitch, tone and volume of the SmoothTalker voice"
 Name: "{group}\SmoothTalker Read Me"; Filename: "{app}\README.txt"
-Name: "{group}\Licence (GPL v2)"; Filename: "{app}\LICENSE.txt"
+Name: "{group}\Licence (MIT)"; Filename: "{app}\LICENSE.txt"
+Name: "{group}\Third-party notices"; Filename: "{app}\NOTICE.txt"
 Name: "{group}\{cm:UninstallProgram,{#AppName}}"; Filename: "{uninstallexe}"
 Name: "{autodesktop}\SmoothTalker Configuration"; Filename: "{app}\{#ConfigExe}"; Comment: "Adjust the rate, pitch, tone and volume of the SmoothTalker voice"; Tasks: desktopicon
 

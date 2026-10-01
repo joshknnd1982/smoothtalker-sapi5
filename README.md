@@ -128,22 +128,20 @@ worth keeping straight:
 
 | Component | Origin | Terms |
 |-----------|--------|-------|
-| `src/`, `installer/`, `tools/`, `CMakeLists.txt` | This project | **GPLv2** — see [LICENSE](LICENSE) |
+| `src/`, `installer/`, `tools/`, `CMakeLists.txt` | This project (except the files adapted from BSTSpeech, below) | **MIT** — see [LICENSE](LICENSE) |
 | `bin/unicorn/*/unicorn.dll` | [Unicorn Engine](https://www.unicorn-engine.org/) 2.1.4 | **GPLv2** |
 | `bin/_smoothtalker_engine/engine.bin` | SmoothTalker 3.5, First Byte, 1983–1990 | Proprietary. Redistributed unmodified as abandonware, as it already is in the NVDA add-on this was derived from. Not this project's to license. |
-| `bin/smoothtalker.py`, `bin/_smoothtalker_engine/core.py` | The NVDA add-on this was ported from | Kept verbatim as the reference implementation `tools/compare_engines.py` checks against |
+| `bin/smoothtalker.py`, `bin/_smoothtalker_engine/core.py` | The NVDA add-on this was ported from: [smoothTalker-sbaitso](https://github.com/joshknnd1982/smoothTalker-sbaitso), by the same author | **MIT**, as in that repository. Kept verbatim as the reference implementation `tools/compare_engines.py` checks against |
 
-This project is free software: you can redistribute it and/or modify it under
-the terms of version 2 of the GNU General Public License as published by the
-Free Software Foundation. It is distributed in the hope that it will be
-useful, but **without any warranty** — without even the implied warranty of
-merchantability or fitness for a particular purpose. See the
-[LICENSE](LICENSE) file for the full text.
+This project is free software under the MIT License: the code written for it
+comes **without any warranty**. See the [LICENSE](LICENSE) file for the full
+text. [NOTICE.md](NOTICE.md) lists the material in this repository that the
+MIT License does not cover, and carries the text of the GPL version 2 for
+Unicorn.
 
-GPLv2 is the honest choice rather than a preference: the shipped installer
-distributes `unicorn.dll` alongside these binaries, and Unicorn is GPLv2, so
-the distribution as a whole carries GPLv2 obligations regardless — even though
-unicorn is loaded dynamically at run time rather than linked.
+The shipped installer distributes `unicorn.dll` alongside these binaries, and
+Unicorn is GPLv2, so the distribution as a whole carries GPLv2 obligations for
+it — even though unicorn is loaded dynamically at run time rather than linked.
 
 Two provenance notes, so nobody has to guess:
 
@@ -153,9 +151,9 @@ Two provenance notes, so nobody has to guess:
   for that reason — relicensing someone else's code by fiat is not something a
   downstream adapter gets to do. If you are reusing them, go and check
   BSTSpeech's own terms.
-- `engine.bin` is **not** covered by the GPL and is not this project's to
-  relicense. The GPL here covers the wrapper, the emulation harness, the
-  installer and the tools — not First Byte's engine.
+- `engine.bin` is **not** covered by the MIT License and is not this project's
+  to relicense. The MIT License here covers the wrapper, the emulation harness,
+  the installer and the tools — not First Byte's engine.
 
 SmoothTalker and Dr. Sbaitso are the work of First Byte and Creative Labs.
 Nothing here modifies their engine; it is executed exactly as shipped in 1990.

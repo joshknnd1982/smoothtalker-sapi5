@@ -127,15 +127,19 @@ This package contains their engine image (engine.bin) unmodified; it is
 proprietary and is not covered by the licence below.
 
 CPU emulation is by the Unicorn Engine (https://www.unicorn-engine.org/),
-version 2.1.4, which is GPLv2.
+version 2.1.4, which is GPLv2. Its licence text is in NOTICE.txt, beside this
+file.
 
 The SAPI5 wrapper, the configuration utility, the installer and the tools are
-free software under version 2 of the GNU General Public License. They come
-with ABSOLUTELY NO WARRANTY. You are free to redistribute them under the terms
-of that licence; the full text is in the LICENSE file in the source
-repository:
+licensed under the MIT License, except for the files adapted from the BSTSpeech
+SAPI5 wrapper (see NOTICE.txt), which it does not cover. They come with
+ABSOLUTELY NO WARRANTY. You are free to redistribute them under the terms of
+that licence; the full text is in LICENSE.txt, beside this file, and in the
+LICENSE file in the source repository:
 
     https://github.com/joshknnd1982/smoothtalker-sapi5
 
-Source code for everything in this package that is under the GPL is available
-at that address.
+NOTICE.txt lists what the MIT License does not cover. Source code for this
+package, other than Unicorn and the engine image, is available at that
+address. The source code of Unicorn is available from
+https://github.com/unicorn-engine/unicorn.
